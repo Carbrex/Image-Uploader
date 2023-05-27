@@ -1,3 +1,5 @@
+# Lakshya-dobby
+
 Create a web application, where you can upload images, view the uploaded images, perform the search operation.
 
 Features to be implemented
@@ -9,14 +11,57 @@ Features to be implemented
 5. Users can only see the images they have uploaded.
 6. Users can perform search operations only on their images.
 
-Tech Stack to be used
+## Tech Stack  used
 1. Back End: NodeJS
 2. Front End: ReactJS
 3. Database: MongoDB
 
-Note:
-1. The code must be pushed to the Github repo
-2. Name of the repo must be [your-name]-dobby
-3. Code must be deployed and share the link.
-4. Provide the login credentials for your applications when you submit them.
-5. Authentication must be implemented in NodeJS and use of Firebase is not allowed
+## Getting Started
+
+To run this repo locally on your machine, follow these steps:
+
+1. Clone the repository:
+
+   ```shell
+   git clone https://github.com/Carbrex/Lakshya-dobby.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```shell
+   cd Lakshya-dobby/
+   ```
+
+3. Install the dependencies for the backend:
+
+   ```shell
+   cd backend
+   npm install
+   ```
+
+4. Install the dependencies for the frontend:
+
+   ```shell
+   cd ../frontend
+   npm install
+   ```
+
+5. Make a `.env` in the backend directory and update the configuration values with your own:
+
+   - Set the `MONGO_URI` to your MongoDB connection string
+   - Set the `JWT_SECRET` to a secret key for JWT authentication
+   - Set the `JWT_LIFETIME` JWT liftime
+
+6. Start the frontend server in the frontend directory:
+
+   ```shell
+   npm run dev
+   ```
+
+7. Start the backend server in the backend directory:
+
+   ```shell
+   npm run dev
+   ```
+
+8. Access the web app in your web browser at `http://localhost:5173`.
