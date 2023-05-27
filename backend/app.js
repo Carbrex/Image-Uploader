@@ -17,6 +17,7 @@ app.use(cors({
 }));
 
 // routes
+app.use('/assets', express.static('./public/uploads'));
 app.use('/api/auth', authRouter);
 app.use('/api/images', authenticateUser, imageRouter);
 

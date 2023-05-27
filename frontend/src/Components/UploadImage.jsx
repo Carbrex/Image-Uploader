@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const UploadImage = ({ url }) => {
     const [name, setName] = useState('');
-    const [image, setImage] = useState({ myFile: "" });
+    const [image, setImage] = useState(null);
     const [uploaded, setUploaded] = useState(false);
 
     const handleNameChange = (event) => {
@@ -13,11 +13,13 @@ const UploadImage = ({ url }) => {
     const uploadImage = async (newImage) => {
         try {
             const token = localStorage.getItem('token');
-            await axios.post(`${url}/api/images/upload`, newImage, {
+            const res=await axios.post(`${url}/api/images/upload`, newImage, {
                 headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            })
+                    'Content-Type': 'multipart/form-data',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            console.log(res);
         } catch (error) {
             console.log(error)
             return;
@@ -30,31 +32,19 @@ const UploadImage = ({ url }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        uploadImage({ myFile: image.myFile, name });
-        setImage({ myFile: "" });
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('myFile', image);
+        uploadImage(formData);
+        setImage(null);
         setName('');
         console.log("Uploaded");
         e.target.reset();
     }
 
-    const convertToBase64 = (file) => {
-        return new Promise((resolve, reject) => {
-            const fileReader = new FileReader();
-            fileReader.readAsDataURL(file);
-            fileReader.onload = () => {
-                resolve(fileReader.result)
-            };
-            fileReader.onerror = (error) => {
-                reject(error)
-            }
-        })
-    }
-
     const handleFileUpload = async (e) => {
         const file = e.target.files[0];
-        const base64 = await convertToBase64(file);
-        console.log(base64)
-        setImage({ ...image, myFile: base64 })
+        setImage(file);
     }
 
     return (

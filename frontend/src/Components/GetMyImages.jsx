@@ -27,7 +27,7 @@ const GetMyImages = ({ url }) => {
             }
             {
                 myImages.map((myImage) => {
-                    return <img src={myImage.myFile} key={myImage._id} />
+                    return <img src={`${url}/assets/${myImage.myFile}`} key={myImage._id} />
                 })
             }
         </div>

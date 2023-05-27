@@ -4,7 +4,7 @@ import GetMyImages from './Components/GetMyImages'
 import UploadImage from './Components/UploadImage'
 import Login from './Components/Login'
 
-const url = "http://localhost:8080"
+const url = "http://localhost:8080";
 
 const initialState = {
   username: '',
