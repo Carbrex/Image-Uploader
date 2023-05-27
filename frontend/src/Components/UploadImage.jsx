@@ -4,6 +4,7 @@ import axios from 'axios';
 const UploadImage = ({ url }) => {
     const [name, setName] = useState('');
     const [image, setImage] = useState({ myFile: "" });
+    const [uploaded, setUploaded] = useState(false);
 
     const handleNameChange = (event) => {
         setName(event.target.value);
@@ -19,7 +20,12 @@ const UploadImage = ({ url }) => {
             })
         } catch (error) {
             console.log(error)
+            return;
         }
+        setUploaded(true);
+        setTimeout(() => {
+            setUploaded(false);
+        }, 2500);
     }
 
     const handleSubmit = (e) => {
@@ -28,6 +34,7 @@ const UploadImage = ({ url }) => {
         setImage({ myFile: "" });
         setName('');
         console.log("Uploaded");
+        e.target.reset();
     }
 
     const convertToBase64 = (file) => {
@@ -73,6 +80,7 @@ const UploadImage = ({ url }) => {
                 />
                 <br />
                 <button type='submit'>Submit</button>
+                {uploaded && <p>Image uploaded successfully</p>}
             </form>
         </div>
     )

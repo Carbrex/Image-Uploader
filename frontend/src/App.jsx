@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import GetMyImages from './GetMyImages'
-import UploadImage from './UploadImage'
-import Login from './Login'
+import GetMyImages from './Components/GetMyImages'
+import UploadImage from './Components/UploadImage'
+import Login from './Components/Login'
 
 const url = "http://localhost:8080"
 
