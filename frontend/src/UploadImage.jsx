@@ -54,7 +54,6 @@ const UploadImage = ({ url }) => {
         <div >
             <form onSubmit={handleSubmit} className='upload-image'>
                 <h2>Image Upload</h2>
-                {/* <label htmlFor="file-upload">Upload Image</label> */}
                 <label htmlFor='img-name'>Name</label>
                 <input
                     className='text-input'
@@ -63,7 +62,6 @@ const UploadImage = ({ url }) => {
                     onChange={handleNameChange}
                 />
                 <br />
-                {/* <label htmlFor="upload-img">Upload Image</label> */}
                 <input
                     className='file-input'
                     type="file"

@@ -29,6 +29,12 @@ const App = () => {
     setShowGetImages(true);
   };
 
+  const logout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    setUser(null);
+  };
+
   useEffect(() => {
     if (localStorage.getItem('token') && localStorage.getItem('username')) {
       setUser(localStorage.getItem('username'));
@@ -39,7 +45,12 @@ const App = () => {
     <div>
       <header className='header'>
         <h3>Image Uploader</h3>
-        {user ? <p>{user}</p> : <p>Log In</p>}
+        {
+          user ?
+            <p>{user} <button className='logout-btn' onClick={logout}>Logout</button></p>
+            :
+            <button className='logout-btn' onClick={logout}>Log in</button>
+        }
       </header>
       {
         (user && localStorage.getItem('token') && localStorage.getItem('username')) ?

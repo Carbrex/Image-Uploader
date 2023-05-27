@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-const Login= ({url,values,setValues,user,setUser})=>{
-  const URL=`${url}/api/auth`
-  
+const Login = ({ url, values, setValues, user, setUser }) => {
+  const URL = `${url}/api/auth`
+
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -51,14 +51,12 @@ const Login= ({url,values,setValues,user,setUser})=>{
   };
   return (
     <>
-      {user && <h2>Already logged in as {user}</h2>}
-      {!user &&
-        <div>
-          <form className='form' onSubmit={onSubmit}>
+      <div>
+          <form className='login-form' onSubmit={onSubmit}>
             <h3>{values.isMember ? 'Login' : 'Register'}</h3>
             {/* name field */}
             {!values.isMember && (
-              <div className='form-row'>
+              <div>
                 <label htmlFor='username' className='form-label'>
                   Username
                 </label>
@@ -68,14 +66,13 @@ const Login= ({url,values,setValues,user,setUser})=>{
                   name='username'
                   value={values.username}
                   onChange={handleChange}
-                  className='form-input'
                 />
               </div>
             )}
             {/* email field */}
             <div className='form-row'>
               <label htmlFor='email' className='form-label'>
-                email
+                Email
               </label>
               <input
                 id='email'
@@ -83,13 +80,12 @@ const Login= ({url,values,setValues,user,setUser})=>{
                 name='email'
                 value={values.email}
                 onChange={handleChange}
-                className='form-input'
               />
             </div>
             {/* password field */}
-            <div className='form-row'>
-              <label htmlFor='password' className='form-label'>
-                password
+            <div>
+              <label htmlFor='password'>
+                Password
               </label>
               <input
                 id='password'
@@ -100,8 +96,8 @@ const Login= ({url,values,setValues,user,setUser})=>{
                 className='form-input'
               />
             </div>
-            <button type='submit' className='btn btn-block' >
-              submit
+            <button type='submit' className='btn' >
+              Submit
             </button>
             <p>
               {values.isMember ? 'Not a member yet?' : 'Already a member?'}
@@ -110,8 +106,7 @@ const Login= ({url,values,setValues,user,setUser})=>{
               </button>
             </p>
           </form>
-        </div>
-      }
+      </div>
     </>
   );
 }
