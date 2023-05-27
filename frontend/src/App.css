@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 3vh 3vw;
+  background-color: #222;
+  /* width: 100vw; */
+  color: white;
+}
+.buttons{
+  display: flex;
+  justify-content: space-evenly;
+}
+.btn {
+  width: 45vw;
+  padding: 1rem;;
+}
+.upload-image {
+  padding: 10vh 35vw;
+  height: 80vh;
+  line-height: 3rem;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.upload-image>label {
+  /* width: ; */
+  display: inline-block;
+  width: 50px;
+}
+
+.text-input {
+  border: none;
+  border-radius: 2px;
+  padding: 0.25rem;
+}
+
+.my-images>img{
+  height: 100px;
+  border: 2px solid white;
+  margin: 10px;
+  border-radius: 2px;
+}
+.my-images>h2{
+  padding: 10vh 0;
+}
