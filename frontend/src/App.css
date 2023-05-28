@@ -37,8 +37,15 @@
   padding: 0.25rem;
 }
 
-.my-images>img{
+.my-images {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 3vw;
+  text-align: center;
+}
+.my-images img{
   height: 150px;
+  width: 250px;
   border: 2px solid white;
   margin: 10px;
   border-radius: 2px;
@@ -67,4 +74,14 @@
 }
 .btn.single-mode {
   margin-left: 10px;
+}
+
+.search-form {
+  text-align: center;
+  padding: 40px 35vw;
+  padding-bottom: 0;
+  justify-content: center;
+}
+.search-form label {
+  margin-right: 10px;
 }
