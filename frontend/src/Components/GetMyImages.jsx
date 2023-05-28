@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import SearchForm from './SearchForm';
 
 const GetMyImages = ({ url }) => {
     const [myImages, setMyImages] = useState([]);
@@ -16,21 +17,27 @@ const GetMyImages = ({ url }) => {
     }
 
     useEffect(() => {
-      getImage();
+        getImage();
     }, [])
-    
+
 
     return (
-        <div className='my-images'>
-            {
-                myImages.length===0&&<h2>No images to display</h2>
-            }
-            {
-                myImages.map((myImage) => {
-                    return <img src={`${url}/assets/${myImage.myFile}`} key={myImage._id} />
-                })
-            }
-        </div>
+        <>
+            <SearchForm url={url} myImages={myImages} setMyImages={setMyImages}/>
+            <div className='my-images'>
+                {
+                    myImages.length === 0 && <h2>No images to display</h2>
+                }
+                {
+                    myImages.map((myImage) => {
+                        return <div  key={myImage._id} >
+                            <img src={`${url}/assets/${myImage.myFile}`} key={myImage._id} />
+                            <p>{myImage.name}</p>
+                        </div>
+                    })
+                }
+            </div >
+        </>
     )
 }
 
