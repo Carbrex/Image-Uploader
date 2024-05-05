@@ -1,4 +1,4 @@
-# Lakshya-dobby
+# Image-Uploader
 
 Create a web application, where you can upload images, view the uploaded images, perform the search operation.
 
