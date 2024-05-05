@@ -29,7 +29,7 @@ To run this repo locally on your machine, follow these steps:
 2. Navigate to the project directory:
 
    ```shell
-   cd Lakshya-dobby/
+   cd Image-Uploader/
    ```
 
 3. Install the dependencies for the backend:
